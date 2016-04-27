@@ -13,7 +13,18 @@ const paths = {
     src: './src/css/*',
     dest: './dist/css'
   },
+  libs: {
+    src: [
+      './node_modules/normalize-css/normalize.css',
+    ],
+    dest: './dist/libs'
+  },
 };
+
+gulp.task('libs', () =>
+  gulp.src(paths.libs.src)
+    .pipe(gulp.dest(paths.libs.dest))
+);
 
 gulp.task('web-pages', () =>
   gulp.src(paths.webpages.src, {base: './src'})
