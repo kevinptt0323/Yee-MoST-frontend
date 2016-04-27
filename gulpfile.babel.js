@@ -1,0 +1,36 @@
+import gulp from 'gulp';
+import changed from 'gulp-changed';
+import browserify from 'browserify';
+import source from 'vinyl-source-stream';
+import babelify from 'babelify';
+
+const paths = {
+  webpages: {
+    src: ['./src/**/*.html', './src/**/*.php'],
+    dest: './dist'
+  },
+  less: {
+    src: './src/css/*',
+    dest: './dist/css'
+  },
+};
+
+gulp.task('web-pages', () =>
+  gulp.src(paths.webpages.src, {base: './src'})
+    .pipe(changed(paths.webpages.dest))
+    .pipe(gulp.dest(paths.webpages.dest))
+);
+
+gulp.task('browserify', () => {
+  let b = browserify({
+    entries: './src/js/index.js',
+    transform: [babelify],
+    debug: true
+  });
+  return b.bundle()
+    .pipe(source('index.js'))
+    .pipe(gulp.dest('dist/js'))
+  ;
+});
+
+gulp.task('default', ['web-pages', 'browserify']);
