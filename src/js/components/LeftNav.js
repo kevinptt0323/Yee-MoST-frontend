@@ -1,5 +1,6 @@
 import React from 'react';
-import { Drawer } from 'material-ui';
+import { Drawer, List, ListItem } from 'material-ui';
+import { Link } from 'react-router';
 
 class LeftNav extends React.Component {
   constructor(props) {
@@ -21,6 +22,11 @@ class LeftNav extends React.Component {
         open={this.state.open}
         onRequestChange={this.handleToggle}
       >
+        <List>
+          <ListItem primaryText={<Link to="/login">Login</Link>} />
+          <ListItem primaryText="Starred" />
+        </List>
+        {this.props.children}
       </Drawer>
     );
   }
