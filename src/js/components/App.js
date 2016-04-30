@@ -12,7 +12,7 @@ const muiTheme = getMuiTheme({
   },
 });
 
-class Container extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.onLeftIconButtonTouchTap = this.onLeftIconButtonTouchTap.bind(this);
@@ -36,4 +36,4 @@ class Container extends React.Component {
   }
 }
 
-export default Container;
+export default App;
