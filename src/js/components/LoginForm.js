@@ -1,16 +1,26 @@
 import React from 'react';
-import { TextField, RaisedButton } from 'material-ui';
+import { Avatar, TextField, RaisedButton } from 'material-ui';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
+    const styles = {
+      width: 400
+    };
     return (
-      <div>
-        <TextField floatingLabelText="Username" /><br />
-        <TextField floatingLabelText="Password" /><br />
-        <RaisedButton label="Login" primary={true} />
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+      >
+        <Avatar size={70} style={{alignSelf: 'center'}}>L</Avatar>
+        <TextField floatingLabelText="Username" style={styles} />
+        <TextField floatingLabelText="Password" style={styles} />
+        <div style={{marginTop: 24, display: 'inline-block'}}>
+          <RaisedButton label="Login" primary={true} />
+        </div>
       </div>
     );
   }
