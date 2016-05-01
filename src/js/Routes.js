@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
-import App from './components/App';
-import LoginPage from './Login';
+import App from './App';
+import LoginPage from './pages/Login';
 
 class Routes extends React.Component {
   render() {
