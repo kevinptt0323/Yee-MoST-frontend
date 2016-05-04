@@ -4,7 +4,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { indigo500 } from 'material-ui/styles/colors';
 
-import LeftNav from './LeftNav';
+import LeftNav from './components/LeftNav';
 
 const muiTheme = getMuiTheme({
   palette: {
