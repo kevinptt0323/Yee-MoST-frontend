@@ -1,6 +1,11 @@
 import React from 'react';
 import update from 'react-addons-update';
 import { Avatar, TextField, RaisedButton } from 'material-ui';
+import request from 'superagent';
+import superagent_prefix from 'superagent-prefix';
+
+//const prefix = superagent_prefix('http://cswwwdev.cs.nctu.edu.tw:9999');
+const prefix = superagent_prefix('');
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -21,7 +26,7 @@ class LoginForm extends React.Component {
       inputData2 = this.state.inputData;
     }
 
-    errorText2[key] = inputData2[key]  ? '' : '不可為空白',
+    errorText2[key] = inputData2[key] ? '' : '不可為空白',
     errorText2 = update(this.state.errorText, {$merge: errorText2});
 
     this.setState({
@@ -50,8 +55,23 @@ class LoginForm extends React.Component {
       .then(() => check('password'), () => check('password'))
       .then(() => {
         console.log("done");
+        let data = {
+          account: this.state.inputData.username,
+          passwd: this.state.inputData.password
+        };
+        //request.post('http://cswwwdev.cs.nctu.edu.tw:7122/api/login')
+        //  .send(data)
+        request.get('/api/info')
+          .use(prefix)
+          .end((err, res) => {
+            if( err ) {
+              console.error(err);
+            } else {
+              console.log(res);
+            }
+          });
       }, () => {
-        console.log("failed");
+        console.error("failed");
       })
       ;
   }
