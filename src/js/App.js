@@ -32,9 +32,6 @@ class App extends React.Component {
           <div
             style={{
               height: 'calc(100% - 64px)',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'
             }}
           >
             {this.props.children}
