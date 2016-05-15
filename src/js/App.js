@@ -29,7 +29,16 @@ class App extends React.Component {
             title="Hello, world!"
           />
           <LeftNav ref="leftNav" />
-          {this.props.children}
+          <div
+            style={{
+              height: 'calc(100% - 64px)',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            {this.props.children}
+          </div>
         </div>
       </MuiThemeProvider>
     );

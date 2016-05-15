@@ -1,14 +1,16 @@
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
 import App from './App';
-import LoginPage from './pages/Login';
+import Login from './pages/Login';
+import FileList from './pages/FileList';
 
 class Routes extends React.Component {
   render() {
     return (
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/files" component={FileList} />
         </Route>
       </Router>
     );

@@ -4,8 +4,8 @@ import { Avatar, TextField, RaisedButton } from 'material-ui';
 import request from 'superagent';
 import superagent_prefix from 'superagent-prefix';
 
-//const prefix = superagent_prefix('http://cswwwdev.cs.nctu.edu.tw:9999');
-const prefix = superagent_prefix('');
+const prefix = superagent_prefix('http://cswwwdev.cs.nctu.edu.tw:9999');
+//const prefix = superagent_prefix('');
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -59,9 +59,8 @@ class LoginForm extends React.Component {
           account: this.state.inputData.username,
           passwd: this.state.inputData.password
         };
-        //request.post('http://cswwwdev.cs.nctu.edu.tw:7122/api/login')
-        //  .send(data)
-        request.get('/api/info')
+        request.post('/api/login')
+          .send(data)
           .use(prefix)
           .end((err, res) => {
             if( err ) {

@@ -8,25 +8,16 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div
+      <Paper
+        zDepth={1}
         style={{
-          height: 'calc(100% - 64px)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
+          padding: 24,
+          textAlign: 'center',
+          display: 'inline-block'
         }}
       >
-        <Paper
-          zDepth={1}
-          style={{
-            padding: 24,
-            textAlign: 'center',
-            display: 'inline-block'
-          }}
-        >
-          <LoginForm />
-        </Paper>
-      </div>
+        <LoginForm />
+      </Paper>
     );
   }
 }
