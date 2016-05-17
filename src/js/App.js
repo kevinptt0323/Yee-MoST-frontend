@@ -16,9 +16,18 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.onLeftIconButtonTouchTap = this.onLeftIconButtonTouchTap.bind(this);
+    this.state = { token: null };
+    this.setToken = this.setToken.bind(this);
+    this.getToken = this.getToken.bind(this);
   }
   onLeftIconButtonTouchTap() {
     this.refs.leftNav.handleToggle();
+  }
+  setToken(token) {
+    this.setState({ token: token });
+  }
+  getToken() {
+    return this.state.token;
   }
   render() {
     return (
@@ -34,7 +43,12 @@ class App extends React.Component {
               height: 'calc(100% - 64px)',
             }}
           >
-            {this.props.children}
+            {
+              React.cloneElement(
+                this.props.children,
+                { setToken: this.setToken, getToken: this.getToken }
+              )
+            }
           </div>
         </div>
       </MuiThemeProvider>

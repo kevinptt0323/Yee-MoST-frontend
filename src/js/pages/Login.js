@@ -24,7 +24,7 @@ class Login extends React.Component {
             display: 'inline-block'
           }}
         >
-          <LoginForm />
+          <LoginForm setToken={this.props.setToken} />
         </Paper>
       </div>
     );
