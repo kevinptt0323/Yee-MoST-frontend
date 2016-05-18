@@ -16,7 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.onLeftIconButtonTouchTap = this.onLeftIconButtonTouchTap.bind(this);
-    this.state = { token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg5LCJpc3MiOiJodHRwOlwvXC9jc3d3d2Rldi5jcy5uY3R1LmVkdS50dzo3MTIyXC9hcGlcL2xvZ2luIiwiaWF0IjoxNDYzNDg0MzQ1LCJleHAiOjE0NjM0ODc5NDUsIm5iZiI6MTQ2MzQ4NDM0NSwianRpIjoiZThlYTJlZTI2ZmVjZGZkYmEwOWYyNGE3MDk5OTBmOTMifQ.fL7-ZNPuEcVJNmAP_HmS_6r05XygstDe2_GgECkh5XM" };
+    this.state = { token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg5LCJpc3MiOiJodHRwOlwvXC9jc3d3d2Rldi5jcy5uY3R1LmVkdS50dzo3MTIyXC9hcGlcL2xvZ2luIiwiaWF0IjoxNDYzNTYyOTgwLCJleHAiOjE0NjM1NjY1ODAsIm5iZiI6MTQ2MzU2Mjk4MCwianRpIjoiNzE3OGU2MzQ4OTFhNDIyNTY0YTlhYTY1YzIwMzUwZTEifQ.Nn6jFf-_9iqgN0GJxVGuJRz-Se017bJtaPBQIxr3_4k" };
     this.setToken = this.setToken.bind(this);
     this.getToken = this.getToken.bind(this);
   }
