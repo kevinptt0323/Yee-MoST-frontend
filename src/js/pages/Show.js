@@ -15,8 +15,7 @@ class Show extends React.Component {
     this.loadData();
   }
   loadData() {
-    const { getToken } = this.props;
-    const filename = "1460524764_acc";
+    const { getToken, params: { filename } } = this.props;
     request.get(`/api/data/${filename}/raw`)
       .use(prefix)
       .set('Authorization', `Bearer ${getToken()}`)

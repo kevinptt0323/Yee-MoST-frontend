@@ -12,7 +12,7 @@ class Routes extends React.Component {
         <Route path="/" component={App}>
           <Route path="/login" component={Login} />
           <Route path="/files" component={FileList} />
-          <Route path="/show" component={Show} />
+          <Route path="/show/:filename" component={Show} />
         </Route>
       </Router>
     );

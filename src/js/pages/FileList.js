@@ -1,5 +1,8 @@
 import React from 'react';
-import { Paper } from 'material-ui';
+import { Link } from 'react-router'
+import { Paper, IconButton } from 'material-ui';
+import FileDownload from 'material-ui/svg-icons/file/file-download';
+import Search from 'material-ui/svg-icons/action/search';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import request from 'superagent';
 import superagent_prefix from 'superagent-prefix';
@@ -35,6 +38,8 @@ class FileList extends React.Component {
         <TableRowColumn>{JSON.stringify(file.metadata)}</TableRowColumn>
         <TableRowColumn>{file.created_at}</TableRowColumn>
         <TableRowColumn>{file.updated_at}</TableRowColumn>
+        <TableRowColumn>{<Link to={`/show/${file.filename}`}><IconButton><Search /></IconButton></Link>}</TableRowColumn>
+        <TableRowColumn>{<IconButton><FileDownload /></IconButton>}</TableRowColumn>
       </TableRow>
     ));
     return (
@@ -46,9 +51,11 @@ class FileList extends React.Component {
             <TableHeaderColumn>metadata</TableHeaderColumn>
             <TableHeaderColumn>created_at</TableHeaderColumn>
             <TableHeaderColumn>updated_at</TableHeaderColumn>
+            <TableHeaderColumn></TableHeaderColumn>
+            <TableHeaderColumn></TableHeaderColumn>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody preScanRows={false}>
           { table_rows }
         </TableBody>
       </Table>
