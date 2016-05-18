@@ -28,7 +28,6 @@ class FileList extends React.Component {
 
   }
   render() {
-    console.log(this.state.lists);
     let table_rows = this.state.lists.map(file => (
       <TableRow key={file.id}>
         <TableRowColumn>{file.id}</TableRowColumn>
