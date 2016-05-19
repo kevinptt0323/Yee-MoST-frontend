@@ -7,6 +7,7 @@ class Login extends React.Component {
     super(props);
   }
   render() {
+    const { router } = this.context;
     return (
       <div
         style={{
@@ -24,12 +25,16 @@ class Login extends React.Component {
             display: 'inline-block'
           }}
         >
-          <LoginForm setToken={this.props.setToken} />
+          <LoginForm setToken={this.props.setToken} onLogin={() => { router.push('/files') }}/>
         </Paper>
       </div>
     );
   }
 }
+
+Login.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default Login;
 

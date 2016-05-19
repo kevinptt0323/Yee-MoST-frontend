@@ -51,10 +51,10 @@ class LoginForm extends React.Component {
         this._checkEmpty(field, null, resolve, reject);
       })
     ;
+    let { onLogin } = this.props;
     check('username')
       .then(() => check('password'), () => check('password'))
       .then(() => {
-        console.log("done");
         let data = {
           account: this.state.inputData.username,
           passwd: this.state.inputData.password
@@ -67,8 +67,7 @@ class LoginForm extends React.Component {
             if( err ) {
               console.error(err);
             } else {
-              console.log(res);
-              this.props.setToken(res.body.data.token);
+              this.props.setToken(res.body.data.token, onLogin);
             }
           });
       }, () => {
