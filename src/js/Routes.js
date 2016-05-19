@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 import App from './App';
 import Login from './pages/Login';
 import FileList from './pages/FileList';
@@ -10,9 +10,10 @@ class Routes extends React.Component {
     return (
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <Route path="/login" component={Login} />
-          <Route path="/files" component={FileList} />
-          <Route path="/show/:filename" component={Show} />
+          <IndexRedirect to="files" />
+          <Route path="login" component={Login} />
+          <Route path="files" component={FileList} />
+          <Route path="show/:filename" component={Show} />
         </Route>
       </Router>
     );
