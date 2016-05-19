@@ -14,7 +14,6 @@ class LeftNav extends React.Component {
       menuItems: [
         { route: 'login', text: 'Login' },
         { route: 'files', text: 'File List' },
-        { route: 'show/1460524764_acc', text: 'show chart' },
       ]
     };
   }
