@@ -11,9 +11,10 @@ import NavRight from 'material-ui/svg-icons/navigation/chevron-right';
 import request from 'superagent';
 import superagent_prefix from 'superagent-prefix';
 
-const prefix = superagent_prefix('http://cswwwdev.cs.nctu.edu.tw:7122');
-
 const ROWS_PER_PAGE = 10;
+const HOST = 'http://cswwwdev.cs.nctu.edu.tw:7122';
+
+const prefix = superagent_prefix(HOST);
 
 class FileList extends React.Component {
   constructor(props) {
@@ -47,7 +48,9 @@ class FileList extends React.Component {
         <TableRowColumn>{file.created_at}</TableRowColumn>
         <TableRowColumn>{file.updated_at}</TableRowColumn>
         <TableRowColumn>{<Link to={`/show/${file.filename}`}><IconButton><Search /></IconButton></Link>}</TableRowColumn>
-        <TableRowColumn>{<IconButton><FileDownload /></IconButton>}</TableRowColumn>
+        <TableRowColumn>{
+          <a href={HOST + `/api/data/${file.filename}/raw?token=${this.props.getToken()}`}><IconButton><FileDownload /></IconButton></a>
+        }</TableRowColumn>
       </TableRow>
     ));
     const navLeft =
