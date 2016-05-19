@@ -20,7 +20,7 @@ class Chart extends React.Component {
       },
     };
     return (
-      <Highcharts config={config} />
+      <Highcharts style={{width: 'calc(100% - 64px)'}} config={config}/>
     );
   }
 }
