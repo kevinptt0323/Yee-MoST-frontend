@@ -41,7 +41,7 @@ class Show extends React.Component {
           alignItems: 'center'
         }}
       >
-        <Chart title="XD" data={this.state.data} />
+        <Chart title={this.props.filename} data={this.state.data} />
       </div>
     );
   }
