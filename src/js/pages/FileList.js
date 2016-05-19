@@ -32,7 +32,7 @@ class FileList extends React.Component {
         if( err ) {
           console.error(res);
           console.error(err);
-          if( res.status == 401 ) {
+          if( res.status == 401 || res.status == 400 ) {
             this.props.login();
           }
         } else {
