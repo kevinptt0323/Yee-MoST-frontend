@@ -16,7 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.onLeftIconButtonTouchTap = this.onLeftIconButtonTouchTap.bind(this);
-    this.state = { token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg5LCJpc3MiOiJodHRwOlwvXC9jc3d3d2Rldi5jcy5uY3R1LmVkdS50dzo3MTIyXC9hcGlcL2xvZ2luIiwiaWF0IjoxNDYzNjM1OTkxLCJleHAiOjE0NjM2Mzk1OTEsIm5iZiI6MTQ2MzYzNTk5MSwianRpIjoiOGRiYWFjNTM4NzA0YTA0ZWIzZDE4MWYyZmMwNDE5NDUifQ.RCMv-CPUdO0BkmjiOCAhhOKliCu3wS5HvMLNv5VmApo" };
+    this.state = { token: "" };
 
     this.setToken = this.setToken.bind(this);
     this.getToken = this.getToken.bind(this);
