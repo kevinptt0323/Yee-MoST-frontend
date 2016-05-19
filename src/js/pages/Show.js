@@ -21,7 +21,11 @@ class Show extends React.Component {
       .set('Authorization', `Bearer ${getToken()}`)
       .end((err, res) => {
         if( err ) {
+          console.error(res);
           console.error(err);
+          if( res.status == 401 ) {
+            this.props.login();
+          }
         } else {
           this.setState({ data: res.text });
         }

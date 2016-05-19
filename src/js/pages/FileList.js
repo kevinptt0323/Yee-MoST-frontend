@@ -30,7 +30,11 @@ class FileList extends React.Component {
       .accept('json')
       .end((err, res) => {
         if( err ) {
+          console.error(res);
           console.error(err);
+          if( res.status == 401 ) {
+            this.props.login();
+          }
         } else {
           this.setState({ lists: res.body.data });
         }

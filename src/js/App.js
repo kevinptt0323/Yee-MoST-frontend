@@ -17,8 +17,10 @@ class App extends React.Component {
     super(props);
     this.onLeftIconButtonTouchTap = this.onLeftIconButtonTouchTap.bind(this);
     this.state = { token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjg5LCJpc3MiOiJodHRwOlwvXC9jc3d3d2Rldi5jcy5uY3R1LmVkdS50dzo3MTIyXC9hcGlcL2xvZ2luIiwiaWF0IjoxNDYzNjM1OTkxLCJleHAiOjE0NjM2Mzk1OTEsIm5iZiI6MTQ2MzYzNTk5MSwianRpIjoiOGRiYWFjNTM4NzA0YTA0ZWIzZDE4MWYyZmMwNDE5NDUifQ.RCMv-CPUdO0BkmjiOCAhhOKliCu3wS5HvMLNv5VmApo" };
+
     this.setToken = this.setToken.bind(this);
     this.getToken = this.getToken.bind(this);
+    this.login = this.login.bind(this);
   }
   onLeftIconButtonTouchTap() {
     this.refs.leftNav.handleToggle();
@@ -29,7 +31,11 @@ class App extends React.Component {
   getToken() {
     return this.state.token;
   }
+  login() {
+    this.context.router.push('/login');
+  }
   render() {
+    let { setToken, getToken, login } = this;
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={{width: '100vw', height: '100vh'}}>
@@ -49,7 +55,7 @@ class App extends React.Component {
             {
               React.cloneElement(
                 this.props.children,
-                { setToken: this.setToken, getToken: this.getToken }
+                { setToken, getToken, login }
               )
             }
           </div>
@@ -58,5 +64,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default App;
