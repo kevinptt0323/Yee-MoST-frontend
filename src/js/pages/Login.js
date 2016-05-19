@@ -8,6 +8,7 @@ class Login extends React.Component {
   }
   render() {
     const { router } = this.context;
+    const { props } = this;
     return (
       <div
         style={{
@@ -25,7 +26,7 @@ class Login extends React.Component {
             display: 'inline-block'
           }}
         >
-          <LoginForm setToken={this.props.setToken} onLogin={() => { router.push('/files') }}/>
+          <LoginForm {...props} />
         </Paper>
       </div>
     );

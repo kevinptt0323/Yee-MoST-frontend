@@ -21,6 +21,7 @@ class App extends React.Component {
     this.setToken = this.setToken.bind(this);
     this.getToken = this.getToken.bind(this);
     this.login = this.login.bind(this);
+    this.onLogin = this.onLogin.bind(this);
   }
   onLeftIconButtonTouchTap() {
     this.refs.leftNav.handleToggle();
@@ -32,10 +33,16 @@ class App extends React.Component {
     return this.state.token;
   }
   login() {
+    const { pathname, query } = this.props.location;
+    this.setState({ beforeLogin: { pathname, query }});
     this.context.router.push('/login');
   }
+  onLogin() {
+    const { beforeLogin: state = "/files" } = this.state;
+    this.context.router.push(state);
+  }
   render() {
-    let { setToken, getToken, login } = this;
+    let { setToken, getToken, login, onLogin } = this;
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={{width: '100vw', height: '100vh'}}>
@@ -55,7 +62,7 @@ class App extends React.Component {
             {
               React.cloneElement(
                 this.props.children,
-                { setToken, getToken, login }
+                { setToken, getToken, login, onLogin }
               )
             }
           </div>
