@@ -12,11 +12,12 @@ class LeftNavItem extends React.Component {
     handleClick(route);
   }
   render() {
-    const { primaryText, isActive } = this.props;
+    const { primaryText, leftIcon } = this.props;
+    const props = { primaryText, leftIcon };
     return (
       <MenuItem
-        primaryText={primaryText}
         onTouchTap={this.onMenuItemTap}
+        {...props}
       />
     );
   }

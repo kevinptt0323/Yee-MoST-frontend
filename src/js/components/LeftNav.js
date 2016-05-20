@@ -3,6 +3,8 @@ import { Drawer } from 'material-ui';
 import { Link } from 'react-router';
 import LeftNavItem from './LeftNavItem';
 
+import List from 'material-ui/svg-icons/action/list';
+
 class LeftNav extends React.Component {
   constructor(props) {
     super(props);
@@ -12,8 +14,11 @@ class LeftNav extends React.Component {
     this.state = {
       open: false,
       menuItems: [
-        { route: 'login', text: 'Login' },
-        { route: 'files', text: 'File List' },
+        {
+          route: 'files',
+          text: 'File List',
+          icon: (<List />)
+        },
       ]
     };
   }
@@ -30,6 +35,7 @@ class LeftNav extends React.Component {
         key={index}
         primaryText={data.text}
         handleClick={this.onMenuListTap}
+        leftIcon={data.icon}
         route={data.route}
         isActive={this.context.router.isActive(data.route)}
       />
