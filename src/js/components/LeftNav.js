@@ -41,6 +41,7 @@ class LeftNav extends React.Component {
         open={this.state.open}
         onRequestChange={this.handleToggle}
       >
+        <img src="/img/sidenav-wallpaper.png" style={{width: "100%"}} />
         {menuLists}
         {this.props.children}
       </Drawer>

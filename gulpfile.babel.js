@@ -6,7 +6,7 @@ import babelify from 'babelify';
 
 const paths = {
   webpages: {
-    src: ['./src/**/*.html', './src/**/*.php'],
+    src: ['./src/**/*.html', './src/**/*.php', './src/img/**/*'],
     dest: './dist'
   },
   less: {
