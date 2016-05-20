@@ -8,14 +8,15 @@ class LeftNavItem extends React.Component {
     this.onMenuItemTap = this.onMenuItemTap.bind(this);
   }
   onMenuItemTap() {
-    const { handleClick, route } = this.props;
-    handleClick(route);
+    const { handleClick } = this.props;
+    handleClick();
   }
   render() {
-    const { primaryText, leftIcon } = this.props;
+    const { primaryText, leftIcon, route } = this.props;
     const props = { primaryText, leftIcon };
     return (
       <MenuItem
+        containerElement={<Link to={route} />}
         onTouchTap={this.onMenuItemTap}
         {...props}
       />
@@ -26,7 +27,6 @@ class LeftNavItem extends React.Component {
 LeftNavItem.propTypes = {
   primaryText: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
-  route: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 

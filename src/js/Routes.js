@@ -13,7 +13,7 @@ class Routes extends React.Component {
           <IndexRedirect to="files" />
           <Route path="login" component={Login} />
           <Route path="files" component={FileList} />
-          <Route path="show/:filename" component={Show} />
+          <Route path="files/:filename" component={Show} />
         </Route>
       </Router>
     );

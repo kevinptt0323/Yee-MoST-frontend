@@ -15,7 +15,7 @@ class LeftNav extends React.Component {
       open: false,
       menuItems: [
         {
-          route: 'files',
+          route: '/files',
           text: 'File List',
           icon: (<List />)
         },
@@ -25,8 +25,7 @@ class LeftNav extends React.Component {
   handleToggle() {
     this.setState({ open: !this.state.open });
   }
-  onMenuListTap(route) {
-    this.context.router.push(`/${route}`);
+  onMenuListTap() {
     this.handleToggle();
   }
   render() {

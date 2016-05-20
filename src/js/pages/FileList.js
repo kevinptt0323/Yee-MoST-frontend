@@ -51,7 +51,7 @@ class FileList extends React.Component {
         <TableRowColumn>{JSON.stringify(file.metadata)}</TableRowColumn>
         <TableRowColumn>{file.created_at}</TableRowColumn>
         <TableRowColumn>{file.updated_at}</TableRowColumn>
-        <TableRowColumn>{<Link to={`/show/${file.filename}`}><IconButton><Search /></IconButton></Link>}</TableRowColumn>
+        <TableRowColumn>{<Link to={`/files/${file.filename}`}><IconButton><Search /></IconButton></Link>}</TableRowColumn>
         <TableRowColumn>{
           <a href={HOST + `/api/data/${file.filename}/raw?token=${this.props.getToken()}`}><IconButton><FileDownload /></IconButton></a>
         }</TableRowColumn>
