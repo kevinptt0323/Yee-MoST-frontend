@@ -42,9 +42,11 @@ class FileList extends React.Component {
 
   }
   render() {
+    const { lists } = this.state;
+    const maxPage = (((lists.length-1)/ROWS_PER_PAGE)|0)+1;
     let { page = 1 } = this.props.location.query;
     page = parseInt(page);
-    const table_rows = this.state.lists.slice((page-1)*ROWS_PER_PAGE, page*ROWS_PER_PAGE).map(file => (
+    const table_rows = lists.slice((page-1)*ROWS_PER_PAGE, page*ROWS_PER_PAGE).map(file => (
       <TableRow key={file.id}>
         <TableRowColumn>{file.id}</TableRowColumn>
         <TableRowColumn>{file.filename}</TableRowColumn>
@@ -64,7 +66,7 @@ class FileList extends React.Component {
         <IconButton disabled={true}><NavLeft /></IconButton>
       );
     const navRight =
-      page*ROWS_PER_PAGE<this.state.lists.length ? (
+      page<=maxPage ? (
         <Link to={{ pathname: '/files', query: {page: page+1} }}><IconButton><NavRight /></IconButton></Link>
       ) : (
         <IconButton disabled={true}><NavRight /></IconButton>
@@ -89,6 +91,7 @@ class FileList extends React.Component {
           <TableRow>
             <TableRowColumn colSpan="7" style={{textAlign: 'right'}}>
               { navLeft }
+              <span style={{ display: 'inline-block', lineHeight: '48px', verticalAlign: 'top' }}>{`${page} / ${maxPage}`}</span>
               { navRight }
             </TableRowColumn>
           </TableRow>
