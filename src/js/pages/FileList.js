@@ -66,7 +66,7 @@ class FileList extends React.Component {
         <IconButton disabled={true}><NavLeft /></IconButton>
       );
     const navRight =
-      page<=maxPage ? (
+      page<maxPage ? (
         <Link to={{ pathname: '/files', query: {page: page+1} }}><IconButton><NavRight /></IconButton></Link>
       ) : (
         <IconButton disabled={true}><NavRight /></IconButton>
