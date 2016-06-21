@@ -1,7 +1,14 @@
 import React from 'react';
 import Highcharts from 'react-highcharts';
 import HighchartsData from 'highcharts-data';
-HighchartsData(Highcharts.Highcharts)
+
+const chart = Highcharts.Highcharts;
+chart.setOptions({
+  global: {
+    timezoneOffset: -8 * 60
+  }
+});
+HighchartsData(chart);
 
 class Chart extends React.Component {
   constructor(props) {
@@ -20,7 +27,7 @@ class Chart extends React.Component {
       },
     };
     return (
-      <Highcharts style={{width: 'calc(100% - 64px)'}} config={config}/>
+      <Highcharts style={{width: 'calc(100% - 64px)'}} config={config} ref="chart" />
     );
   }
 }
