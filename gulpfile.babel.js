@@ -45,3 +45,4 @@ gulp.task('browserify', () => {
 });
 
 gulp.task('default', ['web-pages', 'browserify']);
+gulp.task('build', ['libs', 'web-pages', 'browserify']);
