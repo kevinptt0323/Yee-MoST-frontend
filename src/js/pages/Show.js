@@ -2,9 +2,9 @@ import React from 'react';
 import request from 'superagent';
 import superagent_prefix from 'superagent-prefix';
 import Chart from '../components/Chart';
+import { SERVER_HOST } from '../config';
 
-
-const prefix = superagent_prefix('http://cswwwdev.cs.nctu.edu.tw:7122');
+const prefix = superagent_prefix(SERVER_HOST);
 
 class Show extends React.Component {
   constructor(props) {

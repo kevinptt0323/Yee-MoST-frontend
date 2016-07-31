@@ -10,11 +10,10 @@ import NavRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 import request from 'superagent';
 import superagent_prefix from 'superagent-prefix';
+import { SERVER_HOST } from '../config';
 
 const ROWS_PER_PAGE = 10;
-const HOST = 'http://cswwwdev.cs.nctu.edu.tw:7122';
-
-const prefix = superagent_prefix(HOST);
+const prefix = superagent_prefix(SERVER_HOST);
 
 class FileList extends React.Component {
   constructor(props) {

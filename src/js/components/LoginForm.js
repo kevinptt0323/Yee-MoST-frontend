@@ -3,9 +3,9 @@ import update from 'react-addons-update';
 import { Avatar, TextField, RaisedButton } from 'material-ui';
 import request from 'superagent';
 import superagent_prefix from 'superagent-prefix';
+import { SERVER_HOST } from '../config';
 
-const prefix = superagent_prefix('http://cswwwdev.cs.nctu.edu.tw:7122');
-//const prefix = superagent_prefix('');
+const prefix = superagent_prefix(SERVER_HOST);
 
 class LoginForm extends React.Component {
   constructor(props) {
